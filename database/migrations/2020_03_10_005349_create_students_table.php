@@ -30,6 +30,7 @@ class CreateStudentsTable extends Migration
             $table->integer('status');
 
             $table->timestamps();
+
         });
     }
 

@@ -4,15 +4,18 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\User;
-
+use App\Comment;
 class Student extends Model
 {
+   protected $fillable =[
+       'user_id','firstname','lastname','gender','class','year','picture','province','status'
+   ];
 
-    function user() {
+    public function user() {
         return $this->belongsTo(User::class);
     }
 
-    protected $fillable = [
-        'firstname', 'lastname','gender','class','year','picture','province','status',
-   ];
+    public function comments() {
+        return $this->hasMany(Comment::class);
+    }
 }
