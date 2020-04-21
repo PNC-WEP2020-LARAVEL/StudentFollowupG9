@@ -7,9 +7,9 @@
     <title>Show all Students</title>
 </head>
 <body>
-    <h1>Show all students</h1>
     <div class="container">
         <h1>show all students</h1>
+        <a href="{{route('showStudents.create')}}">Add student</a>
         <table>
             <thead>
             <tr>
@@ -23,6 +23,7 @@
                 <th>Picture</th>
                 <th>Province</th>
                 <th>Status</th>
+                <th>Action</th>
             </tr>
             </thead>
             @foreach ($students as $student)   
@@ -38,6 +39,10 @@
                     <td>{{$student->province}}</td>
                     <td>{{$student->picture}}</td>
                     <td>{{$student->status}}</td>
+                    <td>
+                        <a href="{{route('showStudents.edit',$student->id)}}">Edit</a>
+                        <a href="#">Delete</a>
+                    </td>
                 </tr>
             </tbody>
             @endforeach
